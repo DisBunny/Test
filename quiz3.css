@@ -1,0 +1,52 @@
+body {
+  font-family: serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  background-color: peachpuff;
+  border-radius: 6px;
+  width: 75%;
+  margin: auto;
+  padding-top: 5px;
+  box-shadow: 10px 10px 5px #888;
+  position: relative;
+}
+
+.quiz-progress span {
+  width: 100%;
+  height: 4px;
+  border-radius: 25px;
+  background-color: var(--gray);
+}
+.quiz-progress span.seen {
+  background-color: var(--primary);
+}
+
+.question {
+  font-size: 3em;
+  width: 90%;
+  height: auto;
+  margin: auto;
+  border-radius: 6px;
+  background-color: goldenrod;
+  text-align: center;
+  position: top;
+}
+
+.choices {
+  font-family: Courier, serif;
+  color: indianred;
+  margin-top: 2em;
+  margin-bottom: 10%;
+  padding-bottom: 3em;
+}
+
+.choice {
+  cursor: pointer;
+  font-size: 2em;
+  text-align: center;
+}
