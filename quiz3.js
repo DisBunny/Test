@@ -259,7 +259,7 @@ function updateQuestion() {
   for (i = 0; i < numChoices; i++) {
     choice = currentObj.choices[i].label;
     path = currentObj.choices[i].path;
-    $('<div class="choice" value=' + i + '>' + choice + '</div>').appendTo(choiceList);
+    $('<button class="choice" value=' + i + '>' + choice + '</button>').appendTo(choiceList);
   }
 //answer button maybe
 }
