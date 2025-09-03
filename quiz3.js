@@ -1,3 +1,31 @@
+var startButton = document.getElementById("startButton");
+startButton.addEventListener("click", startClick);
+
+function startClick() {
+
+    var intro = document.getElementById("intro");
+    intro.style.display = "none";
+    startButton.style.display = "none";
+
+    updateQuestion();
+
+}
+let result = { 
+    "Storm": 111,
+    "Inferno": 112,
+    "Prism": 113,
+    "Mountain": 0,
+    "Tides": 0,
+    "Sky": 0,
+    "Night": 0,
+    "Space": 0,
+    "Time": 0,
+    "Nova": 0,
+    "Ambition": 0,
+    "Dream": 0,
+    "Verity": 0,
+};
+
 var choices = document.getElementById("choices");
 
 var questions = {
@@ -227,13 +255,13 @@ $(document).ready(function() {
       if (currentObj.choices[value].question) {
         currentObj = currentObj.choices[value].question;
       } else {
+        result = currentObj.choices[value].path;
         quizComplete = true;
-        alert("quizComplete answers : " + answers);
+        quizResults();
         answers = [];
         currentObj = questions;
       }
       updateQuestion();
-
     });
 
   }
@@ -261,13 +289,41 @@ function updateQuestion() {
     path = currentObj.choices[i].path;
     $('<button class="choice" value=' + i + '>' + choice + '</button>').appendTo(choiceList);
   }
-//answer button maybe
+  }
+  
+  function quizResults() {
+    console.log("Great success", result);
+
+    $(".container > .question").hide();
+    $(".container > .choices").hide();
+
+    document.getElementById("modal").style.display = "flex";
+
+const map = {
+        111: "image1", 112: "image2", 113: "image3",
+        121: "image4", 122: "image5", 123: "image6",
+        131: "image7", 132: "image8", 133: "image9",
+        211: "image10",212: "image11",213: "image12",
+        221: "image13",222: "image14",223: "image15",
+        231: "image16",232: "image17",233: "image18",
+        311: "image19",312: "image20",313: "image21",
+        321: "image22",322: "image23",323: "image24",
+        331: "image25",332: "image26",333: "image27"
+    };
+
+    const imgId = map[result];
+    if (imgId) {
+        showResultImage(imgId);
+    } else {
+        alert("Thanks for playing!");
+    }
 }
 
-//Animates buttons on hover
- $('.button').on('mouseenter', function () {
-    $(this).addClass('active');
-  });
-  $('.button').on('mouseleave', function () {
-    $(this).removeClass('active');
-  });
+function showResultImage(id) {
+    document.querySelectorAll('.modal img.show')
+            .forEach(img => img.classList.remove('show'));
+    const target = document.getElementById(id);
+    if (target) {
+        target.classList.add('show');
+    }
+}
