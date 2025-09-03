@@ -6,6 +6,36 @@ h1 {
   text-align: center;
 }
 
+.modal {
+    position: fixed;
+    inset: 0;                     
+    background: rgba(0,0,0,.7);   
+    display: flex;
+    flex-direction: column;       
+    align-items: center;         
+    justify-content: center;     
+    padding: 2rem;               
+    z-index: 999;
+    overflow: hidden;
+    display: none;         
+}
+
+.modal img {
+    display: none;
+    margin: .5rem auto;
+    max-width: 85vw;
+    max-height: 78vh;
+    width: auto;
+    height: auto;
+    border-radius: 6px;
+    transition: opacity .35s ease, visibility .35s;
+}
+
+.modal img.show {
+  display: block;
+  opacity: 1;
+}
+
 .container {
   background-color: peachpuff;
   border-radius: 6px;
@@ -14,17 +44,7 @@ h1 {
   padding-top: 5px;
   box-shadow: 10px 10px 5px #888;
   position: relative;
-}
-
-.modal {
-    position: fixed;
-    display: hidden;
-    background: rgba( 0,0,0,.7 );
-    height: 100%;
-    width: 100%;
-}
-.image1, .image2, .image3 {
-    display: hidden;
+  text-align: center;
 }
 
 .question {
