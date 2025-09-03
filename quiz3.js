@@ -1,3 +1,31 @@
+var startButton = document.getElementById("startButton");
+startButton.addEventListener("click", startClick);
+
+function startClick() {
+
+    var intro = document.getElementById("intro");
+    intro.style.display = "none";
+    startButton.style.display = "none";
+
+    updateQuestion();
+
+}
+let result = { 
+    "Storm": 111,
+    "Inferno": 112,
+    "Prism": 113,
+    "Mountain": 0,
+    "Tides": 0,
+    "Sky": 0,
+    "Night": 0,
+    "Space": 0,
+    "Time": 0,
+    "Nova": 0,
+    "Ambition": 0,
+    "Dream": 0,
+    "Verity": 0,
+};
+
 var choices = document.getElementById("choices");
 
 var questions = {
@@ -228,7 +256,7 @@ $(document).ready(function() {
         currentObj = currentObj.choices[value].question;
       } else {
         quizComplete = true;
-        alert("quizComplete answers : " + answers);
+        quizResults();
         answers = [];
         currentObj = questions;
       }
@@ -261,13 +289,22 @@ function updateQuestion() {
     path = currentObj.choices[i].path;
     $('<button class="choice" value=' + i + '>' + choice + '</button>').appendTo(choiceList);
   }
-//answer button maybe
+function quizResults() {
+    console.log("Great success");
+    question.style.display = "none";
+    choices.style.display = "none";
+    switch(true){
+            case result == 111:
+                console.log("Is this working?");
+                document.getElementById( "image1" ).style.visibility = "visible";
+                break;
+            case result == 112:
+                document.getElementById( "image2" ).style.visibility = "visible";
+                break;
+            case result == 113:
+                document.getElementById( "image3" ).style.visibility = "visible";
+                break;    
+        };
 }
 
-//Animates buttons on hover
- $('.button').on('mouseenter', function () {
-    $(this).addClass('active');
-  });
-  $('.button').on('mouseleave', function () {
-    $(this).removeClass('active');
   });
